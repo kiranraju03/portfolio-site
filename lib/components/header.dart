@@ -1,22 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/config/colors.dart';
-import 'package:flutter_portfolio/models/header_item.dart';
+import 'package:flutter_portfolio/config/header_items.dart';
+import 'package:flutter_portfolio/utils/global_keys.dart';
 import 'package:flutter_portfolio/utils/screen_helper.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-
-List<HeaderItem> headerItems = [
-  HeaderItem(
-    title: 'Home',
-    onTap: () {},
-    isButton: true,
-  ),
-  HeaderItem(
-    title: 'About',
-    onTap: () {},
-    // isButton: true,
-  ),
-];
 
 class HeaderLogo extends StatelessWidget {
   @override
@@ -25,6 +13,7 @@ class HeaderLogo extends StatelessWidget {
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
+          onTap: () {},
           child: RichText(
             text: TextSpan(
               children: [
@@ -93,7 +82,7 @@ class HeaderRow extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 20),
                         child: GestureDetector(
-                          onDoubleTap: e.onTap,
+                          onTap: e.onTap,
                           child: Text(
                             e.title,
                             style: TextStyle(
@@ -136,7 +125,9 @@ class Header extends StatelessWidget {
           children: [
             HeaderLogo(),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Globals.scaffoldKey.currentState?.openEndDrawer();
+              },
               child: Icon(
                 Icons.menu,
                 color: Colors.white,
