@@ -12,6 +12,8 @@ dependencies:
   google_fonts: ^2.1.0
   responsive_framework: ^0.1.2
   carousel_slider: ^4.0.0
+  enum_to_string: ^2.0.1
+  after_layout: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -20,5 +22,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # assets:
-    # - assets
+  assets:
+    - assets/user/

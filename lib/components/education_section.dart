@@ -8,29 +8,35 @@ import 'package:responsive_framework/responsive_wrapper.dart';
 
 final List<Education> educationList = [
   Education(
-    description:
-        "This is a sample education and details about it is stated below. This is a sample education and details about it is stated below",
-    linkName: "www.flutterpanda.com",
-    period: "2019 - PRESENT",
+    title: 'BNMIT',
+    description: 'Computer Science Engineer with VTU percentage of 68%',
+    // linkName: 'bnmit.org',
+    period: "2013 - 2017",
   ),
   Education(
-    description:
-        "This is a sample education and details about it is stated below.This is a sample education and details about it is stated below",
-    linkName: "www.flutterpanda.com",
-    period: "2018 - 2019",
+    title: 'National College, Jayanagar',
+    description: 'PCMB',
+    // linkName: 'NCJ',
+    period: "2011 - 2013",
   ),
-  Education(
-    description:
-        "This is a sample education and details about it is stated below. This is a sample education and details about it is stated below",
-    linkName: "www.flutterpanda.com",
-    period: "2017 - 2018",
-  ),
-  Education(
-    description:
-        "This is a sample education and details about it is stated below. This is a sample education and details about it is stated below",
-    linkName: "www.flutterpanda.com",
-    period: "2016 - 2017",
-  ),
+  // Education(
+  //   description:
+  //       "This is a sample education and details about it is stated below.This is a sample education and details about it is stated below",
+  //   linkName: "www.flutterpanda.com",
+  //   period: "2018 - 2019",
+  // ),
+  // Education(
+  //   description:
+  //       "This is a sample education and details about it is stated below. This is a sample education and details about it is stated below",
+  //   linkName: "www.flutterpanda.com",
+  //   period: "2017 - 2018",
+  // ),
+  // Education(
+  //   description:
+  //       "This is a sample education and details about it is stated below. This is a sample education and details about it is stated below",
+  //   linkName: "www.flutterpanda.com",
+  //   period: "2016 - 2017",
+  // ),
 ];
 
 class EducationSection extends StatelessWidget {
@@ -67,23 +73,23 @@ class EducationSection extends StatelessWidget {
             SizedBox(
               height: 5.0,
             ),
-            Wrap(
-              children: [
-                Container(
-                  constraints: BoxConstraints(maxWidth: 400.0),
-                  child: Text(
-                    "A full stack all round developer that does all the job he needs to do at all times. Actually this is a false statement",
-                    style: TextStyle(
-                      color: Colors.white,
-                      height: 1.5,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 40.0,
-            ),
+            // Wrap(
+            //   children: [
+            //     Container(
+            //       constraints: BoxConstraints(maxWidth: 400.0),
+            //       child: Text(
+            //         "A full stack all round developer that does all the job he needs to do at all times. Actually this is a false statement",
+            //         style: TextStyle(
+            //           color: Colors.white,
+            //           height: 1.5,
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            // SizedBox(
+            //   height: 40.0,
+            // ),
             LayoutBuilder(
               builder: (context, constraints) {
                 return Container(
@@ -97,6 +103,17 @@ class EducationSection extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Text(
+                                  education.title,
+                                  style: GoogleFonts.oswald(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 20.0,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
                                 Text(
                                   education.period,
                                   style: GoogleFonts.oswald(
@@ -120,21 +137,21 @@ class EducationSection extends StatelessWidget {
                                 SizedBox(
                                   height: 20.0,
                                 ),
-                                MouseRegion(
-                                  cursor: SystemMouseCursors.click,
-                                  child: GestureDetector(
-                                    onTap: () {},
-                                    child: Text(
-                                      education.linkName,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 40.0,
-                                )
+                                // MouseRegion(
+                                //   cursor: SystemMouseCursors.click,
+                                //   child: GestureDetector(
+                                //     onTap: () {},
+                                //     child: Text(
+                                //       education.linkName,
+                                //       style: TextStyle(
+                                //         color: Colors.white,
+                                //       ),
+                                //     ),
+                                //   ),
+                                // ),
+                                // SizedBox(
+                                //   height: 40.0,
+                                // )
                               ],
                             ),
                           ),

@@ -1,0 +1,55 @@
+{
+  "name": "Kiran Raju K",
+  "experience": [
+    {
+      "companyName": "Dhiyo.ai",
+      "designation": "SOFTWARE_ENGINEER",
+      "linkName": "https://www.dhiyo.ai/",
+      "periodSpan": {
+        "start": {
+          "month": "June",
+          "year": 2020
+        }
+      },
+      "projects": [
+        {
+          "title": "Dhiyo App",
+          "description": "A Flutter Application built for hiring blue collar work-force.;Built the application from scratch.",
+          "skill": ["FLUTTER"]
+        },
+        {
+          "title": "Dhiyo Partner App",
+          "description": "A Flutter Application.;Worked with GetX framework.",
+          "skill": ["FLUTTER"]
+        }
+      ]
+    },
+    {
+      "companyName": "Accenture",
+      "designation": "ASSOCIATE_SOFTWARE_ENGINEER",
+      "linkName": "https://www.accenture.com/in-en",
+      "periodSpan": {
+        "start": {
+          "month": "November",
+          "year": 2017
+        },
+        "end": {
+          "month": "June",
+          "year": 2019
+        }
+      },
+      "projects": [
+        {
+          "title": "OpenShift Automation",
+          "description": "Python Script for automating the creation of openshift",
+          "skill": ["PYTHON"]
+        },
+        {
+          "title": "Jenkins Automation",
+          "description": "Python Script for automating jenkins CI/CD",
+          "skill": ["PYTHON"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,15 +1,42 @@
+import 'dart:convert';
+
+import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/download_resumes_section.dart';
 import 'package:flutter_portfolio/components/education_section.dart';
+import 'package:flutter_portfolio/components/experience_section.dart';
 import 'package:flutter_portfolio/components/footer.dart';
 import 'package:flutter_portfolio/components/header.dart';
 import 'package:flutter_portfolio/components/skill_section.dart';
 import 'package:flutter_portfolio/components/testimonials_section.dart';
 import 'package:flutter_portfolio/config/colors.dart';
 import 'package:flutter_portfolio/config/header_items.dart';
+import 'package:flutter_portfolio/models/experience_model.dart';
 import 'package:flutter_portfolio/utils/global_keys.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> with AfterLayoutMixin<Home> {
+  late List<Experience> experiences = [];
+  Future<List<Experience>> setUserData(BuildContext context) async {
+    String data = await DefaultAssetBundle.of(context).loadString(
+      "user/user_data.json",
+    );
+    Map<String, dynamic> formattedData = json.decode(data);
+    // final jsonResult = json.decode(formattedData['experience'].toString());
+    return (formattedData['experience'] as List)
+        .map((e) => Experience.fromJson(e))
+        .toList();
+  }
+
+  @override
+  Future<void> afterFirstLayout(BuildContext context) async {
+    experiences = await setUserData(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +49,7 @@ class Home extends StatelessWidget {
               horizontal: 20,
             ),
             child: ListView.separated(
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (_, int index) {
                 return headerItems[index].isButton != null
                     ? MouseRegion(
                         cursor: SystemMouseCursors.click,
@@ -60,7 +87,7 @@ class Home extends StatelessWidget {
                         ),
                       );
               },
-              separatorBuilder: (BuildContext context, int index) {
+              separatorBuilder: (_, int index) {
                 return SizedBox(
                   height: 10,
                 );
@@ -74,15 +101,19 @@ class Home extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                child: Header(),
-              ),
+              Header(),
               //CarouselSection(),
               DownloadResumeSection(),
               SizedBox(
                 height: 50.0,
               ),
               EducationSection(),
+              SizedBox(
+                height: 50.0,
+              ),
+              ExperienceSection(
+                experiences: experiences,
+              ),
               SizedBox(
                 height: 50.0,
               ),
